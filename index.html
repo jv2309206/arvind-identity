@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Identity</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI, sans-serif;
+background:linear-gradient(180deg,#030712,#0f172a,#020617);
+color:white;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:80px 20px;
+}
+
+h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+h2{
+color:#38bdf8;
+margin-top:70px;
+}
+
+.section{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+button{
+background:#2563eb;
+border:none;
+padding:14px 30px;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#1e40af;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:6px;
+}
+
+.reveal{
+margin-top:20px;
+font-size:24px;
+color:#38bdf8;
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Know the Mind Before the Name</h1>
+
+<p>
+
+There is a certain moment in life when curiosity becomes stronger than comfort.  
+When questions begin to matter more than easy answers.
+
+I am someone who follows that curiosity.  
+Not defined by titles, names, or labels — but by the pursuit of ideas, experiences, and understanding how the world really works.
+
+This space is not about who I am.  
+It is about the things worth exploring — knowledge, systems, stories, and the patterns that shape our world.
+
+</p>
+
+<button onclick="start()">Begin</button>
+
+
+<div class="section">
+
+<h2>What I Am Building</h2>
+
+<p>
+
+Right now, most of my focus is on building something in the field of agriculture.
+
+Agriculture is one of the oldest systems that sustains human civilization, yet many of its processes still rely on methods that have not evolved with modern technology.
+
+I am currently working on a startup idea that aims to integrate modern technology with agriculture to improve efficiency and sustainability.
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+<h2>Academic Direction</h2>
+
+<p>
+
+I completed higher secondary education in the science stream with Physics, Chemistry and Biology.
+
+In the coming years I aim to pursue higher studies at the Indian Veterinary Research Institute and study Veterinary Science.
+
+My long-term academic interest lies in the field of Parasitology.
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+<h2>Background Story</h2>
+
+<p>
+
+I was born in Kota and later moved to Ajmer where my family roots are connected.
+
+Later I spent around a decade in Chittorgarh where most of my childhood and schooling took place.
+
+These experiences of living in different places helped shape my perspective and curiosity about how the world works.
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+<h2>Ideas I Explore</h2>
+
+<p>
+
+Technology  
+Agriculture  
+Biological Systems  
+Philosophy  
+Spirituality  
+Geopolitics  
+Entrepreneurship
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+<h2>Hobbies</h2>
+
+<p>
+
+Badminton  
+Lawn Tennis  
+Table Tennis  
+Yoga (Hatha & Kundalini)  
+Horse Riding  
+Nature Camping
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+<h2>Music</h2>
+
+<p>
+
+Arijit Singh  
+Nusrat Fateh Ali Khan  
+Rahat Fateh Ali Khan  
+Sunidhi Chauhan
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+<h2>Reading Interests</h2>
+
+<p>
+
+Philosophy  
+History  
+Strategy  
+Spiritual Literature  
+Autobiographies of influential figures
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+<h2>Identity Access</h2>
+
+<p>
+
+If you wish to know the identity behind this page, you may request access.
+
+</p>
+
+<input placeholder="Your Name">
+<input placeholder="Your Email">
+
+<button onclick="reveal()">Request Identity</button>
+
+<div class="reveal" id="name">
+
+Identity: Arvind Singh Rawat
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+function start(){
+document.querySelectorAll(".section").forEach((el,i)=>{
+setTimeout(()=>{
+el.classList.add("show")
+},400*i)
+})
+}
+
+function reveal(){
+document.getElementById("name").style.display="block"
+}
+
+</script>
+
+
+</body>
+
+</html>
