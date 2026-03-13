@@ -1,270 +1,239 @@
-<!DOCTYPE html>
-<html lang="en">
+import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 
-<head>
+export default function IdentityWebsite() {
+  const [showRequest, setShowRequest] = useState(false);
+  const contentRef = useRef(null);
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  const scrollToContent = () => {
+    contentRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-<title>Identity</title>
+  const section = {
+    hidden: { opacity: 0, y: 80 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.9 } }
+  };
 
-<style>
+  const books = [
+    "Crime and Punishment – Fyodor Dostoevsky",
+    "The Brothers Karamazov – Fyodor Dostoevsky",
+    "The Metamorphosis – Franz Kafka",
+    "The Republic – Plato",
+    "Meditations – Marcus Aurelius",
+    "Bhagavad Gita",
+    "Autobiography of a Yogi – Paramahansa Yogananda",
+    "Raja Yoga – Swami Vivekananda",
+    "Tao Te Ching – Laozi",
+    "The First and Last Freedom – J. Krishnamurti",
+    "Sapiens – Yuval Noah Harari",
+    "Homo Deus – Yuval Noah Harari",
+    "The Anarchy – William Dalrymple",
+    "India After Gandhi – Ramachandra Guha",
+    "The Story of Civilization – Will Durant",
+    "The Art of War – Sun Tzu",
+    "On War – Carl von Clausewitz",
+    "Strategy – B. H. Liddell Hart",
+    "Wings of Fire – A. P. J. Abdul Kalam",
+    "Long Walk to Freedom – Nelson Mandela"
+  ];
 
-body{
-margin:0;
-font-family:Segoe UI, sans-serif;
-background:linear-gradient(180deg,#030712,#0f172a,#020617);
-color:white;
+  return (
+    <div className="min-h-screen text-gray-100 bg-black overflow-x-hidden">
+
+      {/* Particle background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15),transparent_60%)]" />
+        <div className="absolute top-10 left-10 w-96 h-96 bg-blue-600/20 blur-3xl rounded-full animate-pulse" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-600/20 blur-3xl rounded-full animate-pulse" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 py-24 space-y-32">
+
+        {/* HERO */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="text-center space-y-8"
+        >
+          <h1 className="text-4xl md:text-5xl leading-relaxed font-semibold">
+            There is a certain moment in life when curiosity becomes stronger than comfort.
+            When questions begin to matter more than easy answers.
+          </h1>
+
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            I am someone who follows that curiosity — not defined by titles, names, or labels but by the pursuit of ideas, experiences, and understanding how the world really works.
+          </p>
+
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            This space is not about who I am. It is about the ideas worth exploring — knowledge, systems, stories, and the patterns that shape our world.
+          </p>
+
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Some people introduce themselves with a name. I prefer to introduce an idea.
+          </p>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={scrollToContent}
+            className="px-10 py-4 bg-blue-600 rounded-xl text-lg"
+          >
+            Begin
+          </motion.button>
+        </motion.section>
+
+        {/* INTRO */}
+        <motion.section
+          ref={contentRef}
+          variants={section}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          <h2 className="text-3xl font-semibold">Introduction</h2>
+
+          <p className="text-gray-300 text-lg">
+            My current focus is on exploring how agriculture can evolve through modern technology and innovation. Agriculture remains one of the foundational systems that sustain human civilization.
+          </p>
+
+          <p className="text-gray-300 text-lg">
+            I am developing a startup concept that explores how modern technological systems can improve efficiency, sustainability, and food production.
+          </p>
+
+          <p className="text-gray-300 text-lg">
+            Alongside this, I am building a scientific foundation in biology and life sciences.
+          </p>
+        </motion.section>
+
+        {/* TIMELINE */}
+        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="text-3xl font-semibold mb-8">Journey</h2>
+
+          <div className="space-y-6 border-l border-gray-700 pl-6">
+            <div>
+              <h3 className="text-xl font-semibold">2006 – Kota</h3>
+              <p className="text-gray-400">Born on 23 September 2006.</p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold">Early Years – Ajmer</h3>
+              <p className="text-gray-400">Family roots connected to Ajmer.</p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold">Childhood – Chittorgarh</h3>
+              <p className="text-gray-400">Completed schooling from LKG to 10th grade.</p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold">Hindustan Zinc School</h3>
+              <p className="text-gray-400">Important phase during 9th and 10th grade.</p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* INTEREST MAP */}
+        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="text-3xl font-semibold mb-6">Fields of Curiosity</h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              "Technology & Innovation",
+              "Agriculture Systems",
+              "Biological Sciences",
+              "Philosophy & Spirituality",
+              "Geopolitics",
+              "Entrepreneurship"
+            ].map((item) => (
+              <div key={item} className="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                {item}
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* HOBBIES */}
+        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="text-3xl font-semibold mb-6">Life Outside Work</h2>
+
+          <p className="text-gray-300 text-lg">
+            Sports such as badminton, lawn tennis, and table tennis are important parts of my routine. Yoga — including Hatha and Kundalini — helps maintain balance between mind and body.
+          </p>
+
+          <p className="text-gray-300 text-lg">
+            I also enjoy horse riding, camping, and exploring natural landscapes.
+          </p>
+        </motion.section>
+
+        {/* MUSIC */}
+        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="text-3xl font-semibold mb-6">Music</h2>
+
+          <div className="grid md:grid-cols-2 gap-4 text-gray-300">
+            <div>Arijit Singh</div>
+            <div>Nusrat Fateh Ali Khan</div>
+            <div>Rahat Fateh Ali Khan</div>
+            <div>Sunidhi Chauhan</div>
+          </div>
+        </motion.section>
+
+        {/* BOOKSHELF */}
+        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="text-3xl font-semibold mb-8">Bookshelf</h2>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {books.map((book) => (
+              <div key={book} className="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                {book}
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* LIFE PHILOSOPHY */}
+        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="text-3xl font-semibold mb-6">Life Philosophy</h2>
+
+          <p className="text-gray-300 text-lg">
+            Life is a continuous journey of curiosity, discipline, and discovery. Knowledge must eventually translate into meaningful action and contribution.
+          </p>
+        </motion.section>
+
+        {/* IDENTITY LOCK */}
+        <motion.section
+          variants={section}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center space-y-6"
+        >
+          <h2 className="text-3xl font-semibold">Identity: Restricted</h2>
+
+          <p className="text-gray-400">
+            If the ideas shared here resonated with you, you may request access to know the person behind them.
+          </p>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            onClick={() => setShowRequest(true)}
+            className="px-10 py-4 bg-blue-600 rounded-xl"
+          >
+            Request Access
+          </motion.button>
+
+          {showRequest && (
+            <div className="max-w-md mx-auto space-y-3 pt-6">
+              <input placeholder="Your Name" className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg" />
+              <input placeholder="Email" className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg" />
+              <textarea placeholder="Why do you want to know the identity?" className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg" />
+              <button className="w-full py-3 bg-blue-600 rounded-lg">Submit Request</button>
+            </div>
+          )}
+        </motion.section>
+
+      </div>
+    </div>
+  );
 }
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:80px 20px;
-}
-
-h1{
-font-size:50px;
-margin-bottom:20px;
-}
-
-h2{
-color:#38bdf8;
-margin-top:70px;
-}
-
-.section{
-opacity:0;
-transform:translateY(40px);
-transition:all 1s ease;
-}
-
-.section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-button{
-background:#2563eb;
-border:none;
-padding:14px 30px;
-color:white;
-font-size:16px;
-border-radius:6px;
-cursor:pointer;
-margin-top:20px;
-}
-
-button:hover{
-background:#1e40af;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:6px;
-}
-
-.reveal{
-margin-top:20px;
-font-size:24px;
-color:#38bdf8;
-display:none;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>Know the Mind Before the Name</h1>
-
-<p>
-
-There is a certain moment in life when curiosity becomes stronger than comfort.  
-When questions begin to matter more than easy answers.
-
-I am someone who follows that curiosity.  
-Not defined by titles, names, or labels — but by the pursuit of ideas, experiences, and understanding how the world really works.
-
-This space is not about who I am.  
-It is about the things worth exploring — knowledge, systems, stories, and the patterns that shape our world.
-
-</p>
-
-<button onclick="start()">Begin</button>
-
-
-<div class="section">
-
-<h2>What I Am Building</h2>
-
-<p>
-
-Right now, most of my focus is on building something in the field of agriculture.
-
-Agriculture is one of the oldest systems that sustains human civilization, yet many of its processes still rely on methods that have not evolved with modern technology.
-
-I am currently working on a startup idea that aims to integrate modern technology with agriculture to improve efficiency and sustainability.
-
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h2>Academic Direction</h2>
-
-<p>
-
-I completed higher secondary education in the science stream with Physics, Chemistry and Biology.
-
-In the coming years I aim to pursue higher studies at the Indian Veterinary Research Institute and study Veterinary Science.
-
-My long-term academic interest lies in the field of Parasitology.
-
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h2>Background Story</h2>
-
-<p>
-
-I was born in Kota and later moved to Ajmer where my family roots are connected.
-
-Later I spent around a decade in Chittorgarh where most of my childhood and schooling took place.
-
-These experiences of living in different places helped shape my perspective and curiosity about how the world works.
-
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h2>Ideas I Explore</h2>
-
-<p>
-
-Technology  
-Agriculture  
-Biological Systems  
-Philosophy  
-Spirituality  
-Geopolitics  
-Entrepreneurship
-
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h2>Hobbies</h2>
-
-<p>
-
-Badminton  
-Lawn Tennis  
-Table Tennis  
-Yoga (Hatha & Kundalini)  
-Horse Riding  
-Nature Camping
-
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h2>Music</h2>
-
-<p>
-
-Arijit Singh  
-Nusrat Fateh Ali Khan  
-Rahat Fateh Ali Khan  
-Sunidhi Chauhan
-
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h2>Reading Interests</h2>
-
-<p>
-
-Philosophy  
-History  
-Strategy  
-Spiritual Literature  
-Autobiographies of influential figures
-
-</p>
-
-</div>
-
-
-<div class="section">
-
-<h2>Identity Access</h2>
-
-<p>
-
-If you wish to know the identity behind this page, you may request access.
-
-</p>
-
-<input placeholder="Your Name">
-<input placeholder="Your Email">
-
-<button onclick="reveal()">Request Identity</button>
-
-<div class="reveal" id="name">
-
-Identity: Arvind Singh Rawat
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<script>
-
-function start(){
-document.querySelectorAll(".section").forEach((el,i)=>{
-setTimeout(()=>{
-el.classList.add("show")
-},400*i)
-})
-}
-
-function reveal(){
-document.getElementById("name").style.display="block"
-}
-
-</script>
-
-
-</body>
-
-</html>
