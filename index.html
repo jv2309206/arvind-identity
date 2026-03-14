@@ -1,239 +1,431 @@
-import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-export default function IdentityWebsite() {
-  const [showRequest, setShowRequest] = useState(false);
-  const contentRef = useRef(null);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  const scrollToContent = () => {
-    contentRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+<title>Identity</title>
 
-  const section = {
-    hidden: { opacity: 0, y: 80 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.9 } }
-  };
+<style>
 
-  const books = [
-    "Crime and Punishment – Fyodor Dostoevsky",
-    "The Brothers Karamazov – Fyodor Dostoevsky",
-    "The Metamorphosis – Franz Kafka",
-    "The Republic – Plato",
-    "Meditations – Marcus Aurelius",
-    "Bhagavad Gita",
-    "Autobiography of a Yogi – Paramahansa Yogananda",
-    "Raja Yoga – Swami Vivekananda",
-    "Tao Te Ching – Laozi",
-    "The First and Last Freedom – J. Krishnamurti",
-    "Sapiens – Yuval Noah Harari",
-    "Homo Deus – Yuval Noah Harari",
-    "The Anarchy – William Dalrymple",
-    "India After Gandhi – Ramachandra Guha",
-    "The Story of Civilization – Will Durant",
-    "The Art of War – Sun Tzu",
-    "On War – Carl von Clausewitz",
-    "Strategy – B. H. Liddell Hart",
-    "Wings of Fire – A. P. J. Abdul Kalam",
-    "Long Walk to Freedom – Nelson Mandela"
-  ];
-
-  return (
-    <div className="min-h-screen text-gray-100 bg-black overflow-x-hidden">
-
-      {/* Particle background */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15),transparent_60%)]" />
-        <div className="absolute top-10 left-10 w-96 h-96 bg-blue-600/20 blur-3xl rounded-full animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-indigo-600/20 blur-3xl rounded-full animate-pulse" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 py-24 space-y-32">
-
-        {/* HERO */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="text-center space-y-8"
-        >
-          <h1 className="text-4xl md:text-5xl leading-relaxed font-semibold">
-            There is a certain moment in life when curiosity becomes stronger than comfort.
-            When questions begin to matter more than easy answers.
-          </h1>
-
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            I am someone who follows that curiosity — not defined by titles, names, or labels but by the pursuit of ideas, experiences, and understanding how the world really works.
-          </p>
-
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            This space is not about who I am. It is about the ideas worth exploring — knowledge, systems, stories, and the patterns that shape our world.
-          </p>
-
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Some people introduce themselves with a name. I prefer to introduce an idea.
-          </p>
-
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToContent}
-            className="px-10 py-4 bg-blue-600 rounded-xl text-lg"
-          >
-            Begin
-          </motion.button>
-        </motion.section>
-
-        {/* INTRO */}
-        <motion.section
-          ref={contentRef}
-          variants={section}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="space-y-6"
-        >
-          <h2 className="text-3xl font-semibold">Introduction</h2>
-
-          <p className="text-gray-300 text-lg">
-            My current focus is on exploring how agriculture can evolve through modern technology and innovation. Agriculture remains one of the foundational systems that sustain human civilization.
-          </p>
-
-          <p className="text-gray-300 text-lg">
-            I am developing a startup concept that explores how modern technological systems can improve efficiency, sustainability, and food production.
-          </p>
-
-          <p className="text-gray-300 text-lg">
-            Alongside this, I am building a scientific foundation in biology and life sciences.
-          </p>
-        </motion.section>
-
-        {/* TIMELINE */}
-        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-semibold mb-8">Journey</h2>
-
-          <div className="space-y-6 border-l border-gray-700 pl-6">
-            <div>
-              <h3 className="text-xl font-semibold">2006 – Kota</h3>
-              <p className="text-gray-400">Born on 23 September 2006.</p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold">Early Years – Ajmer</h3>
-              <p className="text-gray-400">Family roots connected to Ajmer.</p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold">Childhood – Chittorgarh</h3>
-              <p className="text-gray-400">Completed schooling from LKG to 10th grade.</p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold">Hindustan Zinc School</h3>
-              <p className="text-gray-400">Important phase during 9th and 10th grade.</p>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* INTEREST MAP */}
-        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-semibold mb-6">Fields of Curiosity</h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              "Technology & Innovation",
-              "Agriculture Systems",
-              "Biological Sciences",
-              "Philosophy & Spirituality",
-              "Geopolitics",
-              "Entrepreneurship"
-            ].map((item) => (
-              <div key={item} className="bg-gray-900 p-6 rounded-xl border border-gray-800">
-                {item}
-              </div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* HOBBIES */}
-        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-semibold mb-6">Life Outside Work</h2>
-
-          <p className="text-gray-300 text-lg">
-            Sports such as badminton, lawn tennis, and table tennis are important parts of my routine. Yoga — including Hatha and Kundalini — helps maintain balance between mind and body.
-          </p>
-
-          <p className="text-gray-300 text-lg">
-            I also enjoy horse riding, camping, and exploring natural landscapes.
-          </p>
-        </motion.section>
-
-        {/* MUSIC */}
-        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-semibold mb-6">Music</h2>
-
-          <div className="grid md:grid-cols-2 gap-4 text-gray-300">
-            <div>Arijit Singh</div>
-            <div>Nusrat Fateh Ali Khan</div>
-            <div>Rahat Fateh Ali Khan</div>
-            <div>Sunidhi Chauhan</div>
-          </div>
-        </motion.section>
-
-        {/* BOOKSHELF */}
-        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-semibold mb-8">Bookshelf</h2>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {books.map((book) => (
-              <div key={book} className="bg-gray-900 border border-gray-800 rounded-lg p-4">
-                {book}
-              </div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* LIFE PHILOSOPHY */}
-        <motion.section variants={section} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-semibold mb-6">Life Philosophy</h2>
-
-          <p className="text-gray-300 text-lg">
-            Life is a continuous journey of curiosity, discipline, and discovery. Knowledge must eventually translate into meaningful action and contribution.
-          </p>
-        </motion.section>
-
-        {/* IDENTITY LOCK */}
-        <motion.section
-          variants={section}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center space-y-6"
-        >
-          <h2 className="text-3xl font-semibold">Identity: Restricted</h2>
-
-          <p className="text-gray-400">
-            If the ideas shared here resonated with you, you may request access to know the person behind them.
-          </p>
-
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            onClick={() => setShowRequest(true)}
-            className="px-10 py-4 bg-blue-600 rounded-xl"
-          >
-            Request Access
-          </motion.button>
-
-          {showRequest && (
-            <div className="max-w-md mx-auto space-y-3 pt-6">
-              <input placeholder="Your Name" className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg" />
-              <input placeholder="Email" className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg" />
-              <textarea placeholder="Why do you want to know the identity?" className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg" />
-              <button className="w-full py-3 bg-blue-600 rounded-lg">Submit Request</button>
-            </div>
-          )}
-        </motion.section>
-
-      </div>
-    </div>
-  );
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
+
+body{
+font-family:Segoe UI, sans-serif;
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+
+/* animated stars */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* container */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:80px 25px;
+}
+
+/* hero */
+
+.hero{
+text-align:center;
+margin-bottom:100px;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:25px;
+}
+
+.hero p{
+line-height:1.8;
+opacity:0.9;
+}
+
+button{
+margin-top:30px;
+padding:14px 32px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1e40af;
+}
+
+/* section */
+
+.section{
+margin-top:90px;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+h2{
+color:#38bdf8;
+margin-bottom:20px;
+}
+
+p{
+line-height:1.8;
+}
+
+/* cards */
+
+.card{
+background:#020617;
+border:1px solid #1e293b;
+padding:25px;
+border-radius:10px;
+margin-top:20px;
+}
+
+/* timeline */
+
+.timeline{
+border-left:2px solid #2563eb;
+padding-left:20px;
+}
+
+.timeline div{
+margin-bottom:20px;
+}
+
+/* identity */
+
+.identity{
+margin-top:40px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:6px;
+border:none;
+}
+
+.reveal{
+margin-top:20px;
+font-size:26px;
+color:#22c55e;
+display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="container">
+
+<div class="hero">
+
+<h1>Know the Mind Before the Name</h1>
+
+<p>
+
+There is a certain moment in life when curiosity becomes stronger than comfort.
+When questions begin to matter more than easy answers.
+
+I am someone who follows that curiosity.
+
+Not defined by titles or labels — but by the pursuit of ideas, systems, and understanding how the world works.
+
+</p>
+
+<button onclick="start()">Begin</button>
+
+</div>
+
+
+<div class="section">
+
+<h2>Current Direction</h2>
+
+<div class="card">
+
+<p>
+
+Right now most of my focus is on building something in the field of agriculture.
+
+Agriculture sustains human civilization, yet many processes still rely on traditional systems.
+
+I am exploring how modern technology can transform agriculture — improving efficiency, sustainability and food systems.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Academic Path</h2>
+
+<div class="card">
+
+<p>
+
+I completed higher secondary education with Physics, Chemistry and Biology.
+
+In 2026 I plan to pursue B.V.Sc & A.H. at the Indian Veterinary Research Institute.
+
+My long-term academic interest lies in Parasitology — studying complex relationships between parasites, hosts and ecosystems.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Life Timeline</h2>
+
+<div class="timeline">
+
+<div>
+
+<strong>Kota</strong>  
+Born on 23 September 2006.
+
+</div>
+
+<div>
+
+<strong>Ajmer</strong>  
+Family roots and early years.
+
+</div>
+
+<div>
+
+<strong>Chittorgarh</strong>  
+Spent nearly a decade here.  
+Completed schooling until 10th grade.  
+Hindustan Zinc School played an important role in shaping my early experiences.
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Fields of Curiosity</h2>
+
+<div class="card">
+
+<p>
+
+Technology & Innovation  
+Agriculture & Biological Systems  
+Philosophy & Spiritual Thought  
+Geopolitics & Global Affairs  
+Entrepreneurship
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Hobbies</h2>
+
+<div class="card">
+
+<p>
+
+Badminton  
+Lawn Tennis  
+Table Tennis  
+Hatha Yoga & Kundalini Yoga  
+Horse Riding  
+Nature camping near Chittorgarh
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Music</h2>
+
+<div class="card">
+
+<p>
+
+Arijit Singh  
+Nusrat Fateh Ali Khan  
+Rahat Fateh Ali Khan  
+Sunidhi Chauhan
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Reading Interests</h2>
+
+<div class="card">
+
+<p>
+
+Philosophy, spirituality, history, strategy and autobiographies.
+
+Authors include Dostoevsky, Kafka, Plato, Marcus Aurelius, Yuval Noah Harari, Sun Tzu and others.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Life Philosophy</h2>
+
+<div class="card">
+
+<p>
+
+Life is a journey of curiosity, discipline and discovery.
+
+Ideas must eventually translate into meaningful contribution.
+
+My goal is to understand systems — nature, society and knowledge — while building something that adds value to the world.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="section identity">
+
+<h2>Identity Access</h2>
+
+<p>If you wish to know the identity behind this page, request access.</p>
+
+<input placeholder="Your Name">
+<input placeholder="Your Email">
+
+<button onclick="reveal()">Request Identity</button>
+
+<div class="reveal" id="name">
+Arvind Singh Rawat
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* starfield */
+
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let stars=[];
+
+for(let i=0;i<200;i++){
+
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*1.5
+})
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="white";
+
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+})
+
+requestAnimationFrame(draw)
+
+}
+
+draw();
+
+
+function start(){
+
+document.querySelectorAll(".section").forEach((el,i)=>{
+
+setTimeout(()=>{
+
+el.classList.add("show")
+
+},400*i)
+
+})
+
+}
+
+function reveal(){
+
+document.getElementById("name").style.display="block"
+
+}
+
+</script>
+
+</body>
+</html>
